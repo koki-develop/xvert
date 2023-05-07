@@ -3,6 +3,9 @@
 require_relative "xvert/version"
 
 module Xvert
-  class Error < StandardError; end
-  # Your code goes here...
+  class << self
+    def hello
+      puts "Hello World"
+    end
+  end
 end
