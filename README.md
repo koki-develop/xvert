@@ -1,6 +1,6 @@
 # Xvert
 
-Convert between CSV, JSON, YAML, and various other formats.
+Convert between JSON, YAML, TOML, and various other formats.
 
 ## Installation
 

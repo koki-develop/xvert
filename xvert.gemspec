@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email = ["kou.pg.0131@gmail.com"]
 
   spec.summary = "Convert between various formats."
-  spec.description = "Convert between CSV, JSON, YAML, and various other formats."
+  spec.description = "Convert between JSON, YAML, TOML, and various other formats."
   spec.homepage = "https://github.com/koki-develop/xvert"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.6.0"
