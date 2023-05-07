@@ -76,8 +76,8 @@ class TestXvert < Minitest::Test
 
   def test_toml_to_object
     toml = <<~TOML
-      foo = 1
       bar = 2
+      foo = 1
     TOML
     object = { "foo" => 1, "bar" => 2 }
     assert_equal object, ::Xvert.to_object(toml, format: :toml)
@@ -86,8 +86,8 @@ class TestXvert < Minitest::Test
   def test_object_to_toml
     object = { "foo" => 1, "bar" => 2 }
     toml = <<~TOML
-      foo = 1
       bar = 2
+      foo = 1
     TOML
     assert_equal toml, ::Xvert.to_text(object, format: :toml)
   end
