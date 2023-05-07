@@ -3,7 +3,13 @@
 module Xvert
   class << self
     def json_to_yaml(text)
-      JSON.parse(text).to_yaml
+      json_to_object(text).to_yaml
+    end
+
+    private
+
+    def json_to_object(text)
+      JSON.parse(text)
     end
   end
 end
