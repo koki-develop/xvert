@@ -50,11 +50,11 @@ module Xvert
     # YAML
 
     def yaml_to_hash(text)
-      YAML.safe_load(text)
+      YAML.unsafe_load(text)
     end
 
     def hash_to_yaml(hash)
-      hash.to_yaml
+      YAML.dump(hash)
     end
 
     # TOML

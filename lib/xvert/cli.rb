@@ -11,7 +11,7 @@ module Xvert
     end
 
     #
-    # JSON
+    # JSON => X
     #
 
     desc "jy", "Convert JSON to YAML"
@@ -19,8 +19,13 @@ module Xvert
       puts Xvert.convert(input, from: :json, to: :yaml)
     end
 
+    desc "jt", "Convert JSON to TOML"
+    def jt
+      puts Xvert.convert(input, from: :json, to: :toml)
+    end
+
     #
-    # YAML
+    # YAML => X
     #
 
     desc "yj", "Convert YAML to JSON"
@@ -28,8 +33,13 @@ module Xvert
       puts Xvert.convert(input, from: :yaml, to: :json)
     end
 
+    desc "yt", "Convert YAML to TOML"
+    def yt
+      puts Xvert.convert(input, from: :yaml, to: :toml)
+    end
+
     #
-    # TOML
+    # TOML => X
     #
 
     desc "tj", "Convert TOML to JSON"
