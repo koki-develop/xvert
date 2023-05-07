@@ -18,3 +18,4 @@ Layout/LineLength:
 Metrics/MethodLength:
   Exclude:
     - 'test/**/*'
+    - 'tapes/**/*'
