@@ -40,7 +40,7 @@ module Xvert
     # JSON
 
     def json_to_object(text)
-      JSON.parse(text, symbolize_names: true)
+      JSON.parse(text)
     end
 
     def object_to_json(object)
