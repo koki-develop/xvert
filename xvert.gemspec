@@ -27,5 +27,6 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency "json", "~> 2.6.0"
   spec.add_runtime_dependency "thor", "~> 1.2.0"
+  spec.add_runtime_dependency "tomlrb", "~> 2.0.0"
   spec.add_runtime_dependency "yaml", "~> 0.2.0"
 end
