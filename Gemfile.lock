@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    xvert (0.0.1)
+    xvert (0.0.2)
 
 GEM
   remote: https://rubygems.org/
