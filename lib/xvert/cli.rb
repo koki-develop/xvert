@@ -10,6 +10,13 @@ module Xvert
       end
     end
 
+    map %w[-v --version] => :version
+
+    desc "--version, -v", "Print Xvert version"
+    def version
+      puts ::Xvert::VERSION
+    end
+
     #
     # JSON => X
     #
