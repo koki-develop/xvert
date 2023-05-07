@@ -32,6 +32,11 @@ module Xvert
       run(from: :json, to: :toml)
     end
 
+    desc "jx", "Convert JSON to XML"
+    def jx
+      run(from: :json, to: :xml)
+    end
+
     #
     # YAML => X
     #
@@ -44,6 +49,11 @@ module Xvert
     desc "yt", "Convert YAML to TOML"
     def yt
       run(from: :yaml, to: :toml)
+    end
+
+    desc "yx", "Convert YAML to XML"
+    def yx
+      run(from: :yaml, to: :xml)
     end
 
     #
@@ -59,6 +69,32 @@ module Xvert
     def ty
       run(from: :toml, to: :yaml)
     end
+
+    desc "tx", "Convert TOML to XML"
+    def tx
+      run(from: :toml, to: :xml)
+    end
+
+    #
+    # XML
+    #
+
+    desc "xj", "Convert XML to JSON"
+    def xj
+      run(from: :xml, to: :json)
+    end
+
+    desc "xt", "Convert XML to TOML"
+    def xt
+      run(from: :xml, to: :toml)
+    end
+
+    desc "xy", "Convert XML to YAML"
+    def xy
+      run(from: :xml, to: :yaml)
+    end
+
+    # ---
 
     private
 
@@ -80,8 +116,9 @@ module Xvert
     def lexer(format)
       case format
       when :json then Rouge::Lexers::JSON.new
-      when :yaml then Rouge::Lexers::YAML.new
       when :toml then Rouge::Lexers::TOML.new
+      when :yaml then Rouge::Lexers::YAML.new
+      when :xml then Rouge::Lexers::XML.new
       else raise UnsupportedFormatError, format
       end
     end
