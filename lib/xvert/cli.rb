@@ -10,15 +10,27 @@ module Xvert
       end
     end
 
+    #
+    # JSON
+    #
+
     desc "jy", "Convert JSON to YAML"
     def jy
       puts Xvert.json_to_yaml($stdin.readlines.join)
     end
 
+    #
+    # YAML
+    #
+
     desc "yj", "Convert YAML to JSON"
     def yj
       puts Xvert.yaml_to_json($stdin.readlines.join)
     end
+
+    #
+    # TOML
+    #
 
     desc "tj", "Convert TOML to JSON"
     def tj
