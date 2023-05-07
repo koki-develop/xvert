@@ -16,12 +16,12 @@ module Xvert
 
     desc "jy", "Convert JSON to YAML"
     def jy
-      puts Xvert.convert(input, from: :json, to: :yaml)
+      run(from: :json, to: :yaml)
     end
 
     desc "jt", "Convert JSON to TOML"
     def jt
-      puts Xvert.convert(input, from: :json, to: :toml)
+      run(from: :json, to: :toml)
     end
 
     #
@@ -30,12 +30,12 @@ module Xvert
 
     desc "yj", "Convert YAML to JSON"
     def yj
-      puts Xvert.convert(input, from: :yaml, to: :json)
+      run(from: :yaml, to: :json)
     end
 
     desc "yt", "Convert YAML to TOML"
     def yt
-      puts Xvert.convert(input, from: :yaml, to: :toml)
+      run(from: :yaml, to: :toml)
     end
 
     #
@@ -44,15 +44,19 @@ module Xvert
 
     desc "tj", "Convert TOML to JSON"
     def tj
-      puts Xvert.convert(input, from: :toml, to: :json)
+      run(from: :toml, to: :json)
     end
 
     desc "ty", "Convert TOML to YAML"
     def ty
-      puts Xvert.convert(input, from: :toml, to: :yaml)
+      run(from: :toml, to: :yaml)
     end
 
     private
+
+    def run(from:, to:)
+      puts ::Xvert.convert(input, from: from, to: to)
+    end
 
     def input
       $stdin.readlines.join
