@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    xvert (0.0.2)
+    xvert (0.0.3)
       thor (~> 1.2.0)
 
 GEM
