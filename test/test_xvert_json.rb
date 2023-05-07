@@ -12,27 +12,27 @@ class TestXvert < Minitest::Test
   # JSON
   #
 
-  def test_json_to_hash
+  def test_json_to_object
     json = '{ "foo": 1, "bar": 2 }'
-    hash = { foo: 1, bar: 2 }
-    assert_equal hash, ::Xvert.to_hash(json, format: :json)
+    object = { foo: 1, bar: 2 }
+    assert_equal object, ::Xvert.to_object(json, format: :json)
 
     json = '[{ "foo": 1 }, { "bar": 2 }]'
-    hash = [{ foo: 1 }, { bar: 2 }]
-    assert_equal hash, ::Xvert.to_hash(json, format: :json)
+    object = [{ foo: 1 }, { bar: 2 }]
+    assert_equal object, ::Xvert.to_object(json, format: :json)
   end
 
-  def test_hash_to_json
-    hash = { foo: 1, bar: 2 }
+  def test_object_to_json
+    object = { foo: 1, bar: 2 }
     json = <<~JSON.chomp
       {
         "foo": 1,
         "bar": 2
       }
     JSON
-    assert_equal json, ::Xvert.to_text(hash, format: :json)
+    assert_equal json, ::Xvert.to_text(object, format: :json)
 
-    hash = [{ foo: 1 }, { bar: 2 }]
+    object = [{ foo: 1 }, { bar: 2 }]
     json = <<~JSON.chomp
       [
         {
@@ -43,6 +43,6 @@ class TestXvert < Minitest::Test
         }
       ]
     JSON
-    assert_equal json, ::Xvert.to_text(hash, format: :json)
+    assert_equal json, ::Xvert.to_text(object, format: :json)
   end
 end

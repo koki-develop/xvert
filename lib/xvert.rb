@@ -7,64 +7,64 @@ require_relative "xvert/version"
 require_relative "xvert/cli"
 
 module Xvert
-  TO_HASH_MAP = {
-    json: :json_to_hash,
-    yaml: :yaml_to_hash,
-    toml: :toml_to_hash
+  TO_OBJECT_MAP = {
+    json: :json_to_object,
+    yaml: :yaml_to_object,
+    toml: :toml_to_object
   }.freeze
 
   TO_TEXT_MAP = {
-    json: :hash_to_json,
-    yaml: :hash_to_yaml,
-    toml: :hash_to_toml
+    json: :object_to_json,
+    yaml: :object_to_yaml,
+    toml: :object_to_toml
   }.freeze
 
-  private_constant :TO_HASH_MAP, :TO_TEXT_MAP
+  private_constant :TO_OBJECT_MAP, :TO_TEXT_MAP
 
   class << self
     def convert(text, from:, to:)
-      hash = to_hash(text, format: from)
-      to_text(hash, format: to)
+      object = to_object(text, format: from)
+      to_text(object, format: to)
     end
 
-    def to_hash(text, format:)
-      send(TO_HASH_MAP[format], text)
+    def to_object(text, format:)
+      send(TO_OBJECT_MAP[format], text)
     end
 
-    def to_text(hash, format:)
-      send(TO_TEXT_MAP[format], hash)
+    def to_text(object, format:)
+      send(TO_TEXT_MAP[format], object)
     end
 
     private
 
     # JSON
 
-    def json_to_hash(text)
+    def json_to_object(text)
       JSON.parse(text, symbolize_names: true)
     end
 
-    def hash_to_json(hash)
-      JSON.pretty_generate(hash)
+    def object_to_json(object)
+      JSON.pretty_generate(object)
     end
 
     # YAML
 
-    def yaml_to_hash(text)
+    def yaml_to_object(text)
       YAML.unsafe_load(text)
     end
 
-    def hash_to_yaml(hash)
-      YAML.dump(hash)
+    def object_to_yaml(object)
+      YAML.dump(object)
     end
 
     # TOML
 
-    def toml_to_hash(text)
+    def toml_to_object(text)
       TomlRB.parse(text)
     end
 
-    def hash_to_toml(hash)
-      TomlRB.dump(hash)
+    def object_to_toml(object)
+      TomlRB.dump(object)
     end
   end
 end
