@@ -6,6 +6,12 @@ require "thor"
 require "xvert"
 
 class CLI < Thor
+  class << self
+    def exit_on_failure?
+      true
+    end
+  end
+
   desc "jy", "Convert JSON to YAML"
   def jy
     puts Xvert.json_to_yaml(STDIN.readlines.join)
