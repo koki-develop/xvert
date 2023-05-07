@@ -63,7 +63,7 @@ module Xvert
     private
 
     def run(from:, to:)
-      text = ::Xvert.convert(input, from: from, to: to)
+      text = ::Xvert.convert(input, from: from, to: to).chomp
       puts highlight(text, to)
     end
 
