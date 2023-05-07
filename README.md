@@ -19,6 +19,7 @@ $ gem install xvert
 ```console
 $ xvert help
 Commands:
+  xvert --version, -v   # Print Xvert version
   xvert help [COMMAND]  # Describe available commands or one specific command
   xvert jt              # Convert JSON to TOML
   xvert jy              # Convert JSON to YAML
