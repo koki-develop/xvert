@@ -22,6 +22,11 @@ module Xvert
     # JSON => X
     #
 
+    desc "jj", "Convert JSON to JSON"
+    def jj
+      j(:json)
+    end
+
     desc "jy", "Convert JSON to YAML"
     def jy
       j(:yaml)
@@ -44,6 +49,11 @@ module Xvert
     desc "tj", "Convert TOML to JSON"
     def tj
       t(:json)
+    end
+
+    desc "tt", "Convert TOML to TOML"
+    def tt
+      t(:toml)
     end
 
     desc "ty", "Convert TOML to YAML"
@@ -70,6 +80,11 @@ module Xvert
       x(:toml)
     end
 
+    desc "xx", "Convert XML to XML"
+    def xx
+      x(:xml)
+    end
+
     desc "xy", "Convert XML to YAML"
     def xy
       x(:yaml)
@@ -92,6 +107,11 @@ module Xvert
     desc "yx", "Convert YAML to XML"
     def yx
       y(:xml)
+    end
+
+    desc "yy", "Convert YAML to YAML"
+    def yy
+      y(:yaml)
     end
 
     # ---
