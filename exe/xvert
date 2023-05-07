@@ -8,7 +8,7 @@ require "xvert"
 class CLI < Thor
   desc "jy", "Convert JSON to YAML"
   def jy
-    puts "Hello World"
+    puts Xvert.json_to_yaml(STDIN.readlines.join)
   end
 end
 
