@@ -9,7 +9,7 @@ class TestXvert < Minitest::Test
   end
 
   #
-  # json to yaml
+  # to yaml
   #
 
   def test_json_to_yaml
