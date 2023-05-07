@@ -27,8 +27,6 @@ module Xvert
       to_text(hash, format: to)
     end
 
-    private
-
     def to_hash(text, format:)
       send(TO_HASH_MAP[format], text)
     end
@@ -37,10 +35,12 @@ module Xvert
       send(TO_TEXT_MAP[format], hash)
     end
 
+    private
+
     # JSON
 
     def json_to_hash(text)
-      JSON.parse(text)
+      JSON.parse(text, symbolize_names: true)
     end
 
     def hash_to_json(hash)

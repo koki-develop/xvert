@@ -9,26 +9,40 @@ class TestXvert < Minitest::Test
   end
 
   #
-  # to yaml
+  # JSON
   #
 
-  def test_json_to_yaml
+  def test_json_to_hash
     json = '{ "foo": 1, "bar": 2 }'
-    yaml = <<~YAML
-      ---
-      foo: 1
-      bar: 2
-    YAML
-    assert_equal yaml, ::Xvert.json_to_yaml(json)
+    hash = { foo: 1, bar: 2 }
+    assert_equal hash, ::Xvert.to_hash(json, format: :json)
+
+    json = '[{ "foo": 1 }, { "bar": 2 }]'
+    hash = [{ foo: 1 }, { bar: 2 }]
+    assert_equal hash, ::Xvert.to_hash(json, format: :json)
   end
 
-  def test_json_to_yaml_with_array
-    json = '[{ "foo": 1 }, { "bar": 2 }]'
-    yaml = <<~YAML
-      ---
-      - foo: 1
-      - bar: 2
-    YAML
-    assert_equal yaml, ::Xvert.json_to_yaml(json)
+  def test_hash_to_json
+    hash = { foo: 1, bar: 2 }
+    json = <<~JSON.chomp
+      {
+        "foo": 1,
+        "bar": 2
+      }
+    JSON
+    assert_equal json, ::Xvert.to_text(hash, format: :json)
+
+    hash = [{ foo: 1 }, { bar: 2 }]
+    json = <<~JSON.chomp
+      [
+        {
+          "foo": 1
+        },
+        {
+          "bar": 2
+        }
+      ]
+    JSON
+    assert_equal json, ::Xvert.to_text(hash, format: :json)
   end
 end
