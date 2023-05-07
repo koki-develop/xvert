@@ -16,6 +16,11 @@ class CLI < Thor
   def jy
     puts Xvert.json_to_yaml($stdin.readlines.join)
   end
+
+  desc "yj", "Convert YAML to JSON"
+  def yj
+    puts Xvert.yaml_to_json($stdin.readlines.join)
+  end
 end
 
 CLI.start(ARGV)

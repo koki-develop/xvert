@@ -2,8 +2,8 @@
 
 module Xvert
   class << self
-    def json_to_yaml(text)
-      JSON.parse(text).to_yaml
+    def yaml_to_json(text)
+      YAML.safe_load(text).to_json
     end
   end
 end
