@@ -13,6 +13,22 @@ class TestXvert < Minitest::Test
   #
 
   def test_json_to_yaml
-    assert_equal "---\nfoo: 1\nbar: 2\n", ::Xvert.json_to_yaml('{"foo": 1, "bar": 2}')
+    json = '{ "foo": 1, "bar": 2 }'
+    yaml = <<~YAML
+      ---
+      foo: 1
+      bar: 2
+    YAML
+    assert_equal yaml, ::Xvert.json_to_yaml(json)
+  end
+
+  def test_json_to_yaml_with_array
+    json = '[{ "foo": 1 }, { "bar": 2 }]'
+    yaml = <<~YAML
+      ---
+      - foo: 1
+      - bar: 2
+    YAML
+    assert_equal yaml, ::Xvert.json_to_yaml(json)
   end
 end
