@@ -63,16 +63,6 @@ module Xvert
       TomlRB.dump(object)
     end
 
-    # YAML
-
-    def yaml_to_object(text)
-      YAML.unsafe_load(text)
-    end
-
-    def object_to_yaml(object)
-      YAML.dump(object)
-    end
-
     # XML
 
     def xml_to_object(text)
@@ -81,6 +71,16 @@ module Xvert
 
     def object_to_xml(object)
       object.to_xml(root: :root)
+    end
+
+    # YAML
+
+    def yaml_to_object(text)
+      YAML.unsafe_load(text)
+    end
+
+    def object_to_yaml(object)
+      YAML.dump(object)
     end
   end
 end
