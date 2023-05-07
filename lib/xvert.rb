@@ -7,19 +7,7 @@ require_relative "xvert/version"
 require_relative "xvert/cli"
 
 module Xvert
-  TO_OBJECT_MAP = {
-    json: :json_to_object,
-    yaml: :yaml_to_object,
-    toml: :toml_to_object
-  }.freeze
-
-  TO_TEXT_MAP = {
-    json: :object_to_json,
-    yaml: :object_to_yaml,
-    toml: :object_to_toml
-  }.freeze
-
-  private_constant :TO_OBJECT_MAP, :TO_TEXT_MAP
+  class UnsupportedFormatError < StandardError; end
 
   class << self
     def convert(text, from:, to:)
@@ -28,11 +16,21 @@ module Xvert
     end
 
     def to_object(text, format:)
-      send(TO_OBJECT_MAP[format], text)
+      case format
+      when :json then json_to_object(text)
+      when :yaml then yaml_to_object(text)
+      when :toml then toml_to_object(text)
+      else raise UnsupportedFormatError, "Unsupported format: #{format}"
+      end
     end
 
     def to_text(object, format:)
-      send(TO_TEXT_MAP[format], object)
+      case format
+      when :json then object_to_json(object)
+      when :yaml then object_to_yaml(object)
+      when :toml then object_to_toml(object)
+      else raise UnsupportedFormatError, "Unsupported format: #{format}"
+      end
     end
 
     private
