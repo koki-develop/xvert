@@ -85,12 +85,12 @@ def extract_formats(command)
 end
 
 def extract_format(char)
-  case char
-  when "j" then "json"
-  when "t" then "toml"
-  when "y" then "yaml"
-  when "x" then "xml"
-  end
+  {
+    "j" => "json",
+    "t" => "toml",
+    "y" => "yaml",
+    "x" => "xml"
+  }[char]
 end
 
 case ARGV[0]
