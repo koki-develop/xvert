@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "rouge"
 require "thor"
 
 module Xvert
@@ -62,7 +63,27 @@ module Xvert
     private
 
     def run(from:, to:)
-      puts ::Xvert.convert(input, from: from, to: to)
+      text = ::Xvert.convert(input, from: from, to: to)
+      puts highlight(text, to)
+    end
+
+    def highlight(text, format)
+      return text unless $stdout.isatty
+
+      formatter(Rouge::Themes::Monokai.new).format(lexer(format).lex(text))
+    end
+
+    def formatter(theme)
+      Rouge::Formatters::Terminal256.new(theme)
+    end
+
+    def lexer(format)
+      case format
+      when :json then Rouge::Lexers::JSON.new
+      when :yaml then Rouge::Lexers::YAML.new
+      when :toml then Rouge::Lexers::TOML.new
+      else raise UnsupportedFormatError, format
+      end
     end
 
     def input
