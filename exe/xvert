@@ -2,6 +2,14 @@
 
 # frozen_string_literal: true
 
+require "thor"
 require "xvert"
 
-Xvert.hello
+class CLI < Thor
+  desc "jy", "Convert JSON to YAML"
+  def jy
+    puts "Hello World"
+  end
+end
+
+CLI.start(ARGV)
