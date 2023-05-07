@@ -13,7 +13,7 @@ module Xvert
     private
 
     def toml_to_object(text)
-      Tomlrb.parse(text)
+      TomlRB.parse(text)
     end
   end
 end

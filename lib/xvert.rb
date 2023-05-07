@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "json"
-require "tomlrb"
+require "toml-rb"
 require "yaml"
 require_relative "xvert/version"
 require_relative "xvert/cli"

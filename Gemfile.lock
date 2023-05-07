@@ -4,13 +4,14 @@ PATH
     xvert (0.0.4)
       json (~> 2.6.0)
       thor (~> 1.2.0)
-      tomlrb (~> 2.0.0)
+      toml-rb (~> 2.2.0)
       yaml (~> 0.2.0)
 
 GEM
   remote: https://rubygems.org/
   specs:
     ast (2.4.2)
+    citrus (3.0.2)
     json (2.6.3)
     minitest (5.18.0)
     parallel (1.23.0)
@@ -34,7 +35,8 @@ GEM
       parser (>= 3.2.1.0)
     ruby-progressbar (1.13.0)
     thor (1.2.1)
-    tomlrb (2.0.3)
+    toml-rb (2.2.0)
+      citrus (~> 3.0, > 3.0)
     unicode-display_width (2.4.2)
     yaml (0.2.1)
 
