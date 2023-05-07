@@ -7,7 +7,11 @@ require_relative "xvert/version"
 require_relative "xvert/cli"
 
 module Xvert
-  class UnsupportedFormatError < StandardError; end
+  class UnsupportedFormatError < StandardError
+    def initialize(format)
+      super("Unsupported format: #{format}")
+    end
+  end
 
   class << self
     def convert(text, from:, to:)
@@ -20,7 +24,7 @@ module Xvert
       when :json then json_to_object(text)
       when :yaml then yaml_to_object(text)
       when :toml then toml_to_object(text)
-      else raise UnsupportedFormatError, "Unsupported format: #{format}"
+      else raise UnsupportedFormatError, format
       end
     end
 
@@ -29,7 +33,7 @@ module Xvert
       when :json then object_to_json(object)
       when :yaml then object_to_yaml(object)
       when :toml then object_to_toml(object)
-      else raise UnsupportedFormatError, "Unsupported format: #{format}"
+      else raise UnsupportedFormatError, format
       end
     end
 
