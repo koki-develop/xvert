@@ -4,11 +4,19 @@ Convert between CSV, JSON, YAML, and various other formats.
 
 ## Installation
 
-:construction: TODO :construction:
+```console
+$ gem install xvert
+```
 
 ## Usage
 
-:construction: TODO :construction:
+```
+$ xvert help
+Commands:
+  xvert help [COMMAND]  # Describe available commands or one specific command
+  xvert jy              # Convert JSON to YAML
+  xvert yj              # Convert YAML to JSON
+```
 
 ## License
 
