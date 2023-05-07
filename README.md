@@ -2,6 +2,7 @@
 
 [![Gem](https://img.shields.io/gem/v/xvert?logo=ruby&logoColor=%23CC342D)](https://rubygems.org/gems/xvert)
 [![Code Climate maintainability](https://img.shields.io/codeclimate/maintainability/koki-develop/xvert?logo=codeclimate)](https://codeclimate.com/github/koki-develop/xvert)
+[![Codecov](https://img.shields.io/codecov/c/github/koki-develop/xvert?logo=codecov)](https://app.codecov.io/gh/koki-develop/xvert)
 [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/koki-develop/xvert/main.yml?logo=github)](https://github.com/koki-develop/xvert/actions/workflows/main.yml)
 [![GitHub](https://img.shields.io/github/license/koki-develop/xvert)](./LICENSE.txt)
 
