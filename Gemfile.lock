@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    xvert (0.2.0)
+    xvert (0.3.0)
       json (~> 2.6.0)
       rouge (~> 3.2.0)
       thor (~> 1.2.0)
