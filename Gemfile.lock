@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    xvert (0.0.4)
+    xvert (0.1.0)
       json (~> 2.6.0)
       thor (~> 1.2.0)
       toml-rb (~> 2.2.0)
