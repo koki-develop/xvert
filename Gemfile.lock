@@ -3,7 +3,7 @@ PATH
   specs:
     xvert (0.3.0)
       json (~> 2.6.0)
-      rouge (~> 3.2.0)
+      rouge (~> 4.1.0)
       thor (~> 1.2.0)
       toml-rb (~> 2.2.0)
       yaml (~> 0.2.0)
@@ -23,7 +23,7 @@ GEM
     rake (13.0.6)
     regexp_parser (2.8.0)
     rexml (3.2.5)
-    rouge (3.2.1)
+    rouge (4.1.0)
     rubocop (1.50.2)
       json (~> 2.3)
       parallel (~> 1.10)
