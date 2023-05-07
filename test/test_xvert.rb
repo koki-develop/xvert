@@ -23,7 +23,7 @@ class TestXvert < Minitest::Test
   end
 
   def test_object_to_json
-    object = { foo: 1, bar: 2 }
+    object = { "foo" => 1, "bar" => 2 }
     json = <<~JSON.chomp
       {
         "foo": 1,
@@ -32,7 +32,7 @@ class TestXvert < Minitest::Test
     JSON
     assert_equal json, ::Xvert.to_text(object, format: :json)
 
-    object = [{ foo: 1 }, { bar: 2 }]
+    object = [{ "foo" => 1 }, { "bar" => 2 }]
     json = <<~JSON.chomp
       [
         {
@@ -68,5 +68,27 @@ class TestXvert < Minitest::Test
       bar: 2
     YAML
     assert_equal yaml, ::Xvert.to_text(object, format: :yaml)
+  end
+
+  #
+  # TOML
+  #
+
+  def test_toml_to_object
+    toml = <<~TOML
+      foo = 1
+      bar = 2
+    TOML
+    object = { "foo" => 1, "bar" => 2 }
+    assert_equal object, ::Xvert.to_object(toml, format: :toml)
+  end
+
+  def test_object_to_toml
+    object = { "foo" => 1, "bar" => 2 }
+    toml = <<~TOML
+      foo = 1
+      bar = 2
+    TOML
+    assert_equal toml, ::Xvert.to_text(object, format: :toml)
   end
 end
