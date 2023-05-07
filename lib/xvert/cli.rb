@@ -24,26 +24,17 @@ module Xvert
 
     desc "jy", "Convert JSON to YAML"
     def jy
-      run(from: :json, to: :yaml)
+      j(:yaml)
     end
 
     desc "jt", "Convert JSON to TOML"
     def jt
-      run(from: :json, to: :toml)
+      j(:toml)
     end
 
-    #
-    # YAML => X
-    #
-
-    desc "yj", "Convert YAML to JSON"
-    def yj
-      run(from: :yaml, to: :json)
-    end
-
-    desc "yt", "Convert YAML to TOML"
-    def yt
-      run(from: :yaml, to: :toml)
+    desc "jx", "Convert JSON to XML"
+    def jx
+      j(:xml)
     end
 
     #
@@ -52,15 +43,76 @@ module Xvert
 
     desc "tj", "Convert TOML to JSON"
     def tj
-      run(from: :toml, to: :json)
+      t(:json)
     end
 
     desc "ty", "Convert TOML to YAML"
     def ty
-      run(from: :toml, to: :yaml)
+      t(:yaml)
     end
 
+    desc "tx", "Convert TOML to XML"
+    def tx
+      t(:xml)
+    end
+
+    #
+    # XML
+    #
+
+    desc "xj", "Convert XML to JSON"
+    def xj
+      x(:json)
+    end
+
+    desc "xt", "Convert XML to TOML"
+    def xt
+      x(:toml)
+    end
+
+    desc "xy", "Convert XML to YAML"
+    def xy
+      x(:yaml)
+    end
+
+    #
+    # YAML => X
+    #
+
+    desc "yj", "Convert YAML to JSON"
+    def yj
+      y(:json)
+    end
+
+    desc "yt", "Convert YAML to TOML"
+    def yt
+      y(:toml)
+    end
+
+    desc "yx", "Convert YAML to XML"
+    def yx
+      y(:xml)
+    end
+
+    # ---
+
     private
+
+    def j(format)
+      run(from: :json, to: format)
+    end
+
+    def t(format)
+      run(from: :toml, to: format)
+    end
+
+    def x(format)
+      run(from: :xml, to: format)
+    end
+
+    def y(format)
+      run(from: :yaml, to: format)
+    end
 
     def run(from:, to:)
       text = ::Xvert.convert(input, from: from, to: to).chomp
@@ -80,8 +132,9 @@ module Xvert
     def lexer(format)
       case format
       when :json then Rouge::Lexers::JSON.new
-      when :yaml then Rouge::Lexers::YAML.new
       when :toml then Rouge::Lexers::TOML.new
+      when :yaml then Rouge::Lexers::YAML.new
+      when :xml then Rouge::Lexers::XML.new
       else raise UnsupportedFormatError, format
       end
     end

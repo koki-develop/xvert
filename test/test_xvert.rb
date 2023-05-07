@@ -47,6 +47,52 @@ class TestXvert < Minitest::Test
   end
 
   #
+  # TOML
+  #
+
+  def test_toml_to_object
+    toml = <<~TOML
+      bar = 2
+      foo = 1
+    TOML
+    object = { "foo" => 1, "bar" => 2 }
+    assert_equal object, ::Xvert.to_object(toml, format: :toml)
+  end
+
+  def test_object_to_toml
+    object = { "foo" => 1, "bar" => 2 }
+    toml = <<~TOML
+      bar = 2
+      foo = 1
+    TOML
+    assert_equal toml, ::Xvert.to_text(object, format: :toml)
+  end
+
+  def test_xml_to_object
+    xml = <<~XML
+      <?xml version="1.0" encoding="UTF-8"?>
+      <root>
+        <foo type="integer">1</foo>
+        <bar type="integer">2</bar>
+      </root>
+    XML
+    object = { "root" => { "foo" => 1, "bar" => 2 } }
+    assert_equal object, ::Xvert.to_object(xml, format: :xml)
+  end
+
+  def test_object_to_xml
+    object = { "foo" => 1, "bar" => 2 }
+    xml = <<~XML
+      <?xml version="1.0" encoding="UTF-8"?>
+      <root>
+        <foo type="integer">1</foo>
+        <bar type="integer">2</bar>
+      </root>
+    XML
+    assert_equal xml, ::Xvert.to_text(object, format: :xml)
+  end
+
+  #
   # YAML
   #
 
@@ -68,27 +114,5 @@ class TestXvert < Minitest::Test
       bar: 2
     YAML
     assert_equal yaml, ::Xvert.to_text(object, format: :yaml)
-  end
-
-  #
-  # TOML
-  #
-
-  def test_toml_to_object
-    toml = <<~TOML
-      bar = 2
-      foo = 1
-    TOML
-    object = { "foo" => 1, "bar" => 2 }
-    assert_equal object, ::Xvert.to_object(toml, format: :toml)
-  end
-
-  def test_object_to_toml
-    object = { "foo" => 1, "bar" => 2 }
-    toml = <<~TOML
-      bar = 2
-      foo = 1
-    TOML
-    assert_equal toml, ::Xvert.to_text(object, format: :toml)
   end
 end

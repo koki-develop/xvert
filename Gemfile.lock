@@ -2,8 +2,10 @@ PATH
   remote: .
   specs:
     xvert (0.3.0)
+      activesupport (~> 7.0.0)
+      builder (~> 3.2.0)
       json (~> 2.6.0)
-      rouge (~> 3.2.0)
+      rouge (~> 4.1.0)
       thor (~> 1.2.0)
       toml-rb (~> 2.2.0)
       yaml (~> 0.2.0)
@@ -11,9 +13,18 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
+    activesupport (7.0.4.3)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      i18n (>= 1.6, < 2)
+      minitest (>= 5.1)
+      tzinfo (~> 2.0)
     ast (2.4.2)
+    builder (3.2.4)
     citrus (3.0.2)
+    concurrent-ruby (1.2.2)
     docile (1.4.0)
+    i18n (1.13.0)
+      concurrent-ruby (~> 1.0)
     json (2.6.3)
     minitest (5.18.0)
     parallel (1.23.0)
@@ -23,7 +34,7 @@ GEM
     rake (13.0.6)
     regexp_parser (2.8.0)
     rexml (3.2.5)
-    rouge (3.2.1)
+    rouge (4.1.0)
     rubocop (1.50.2)
       json (~> 2.3)
       parallel (~> 1.10)
@@ -49,6 +60,8 @@ GEM
     thor (1.2.1)
     toml-rb (2.2.0)
       citrus (~> 3.0, > 3.0)
+    tzinfo (2.0.6)
+      concurrent-ruby (~> 1.0)
     unicode-display_width (2.4.2)
     yaml (0.2.1)
 

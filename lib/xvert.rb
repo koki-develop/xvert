@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "active_support"
+require "active_support/core_ext/hash"
 require "json"
 require "toml-rb"
 require "yaml"
@@ -22,8 +24,9 @@ module Xvert
     def to_object(text, format:)
       case format
       when :json then json_to_object(text)
-      when :yaml then yaml_to_object(text)
       when :toml then toml_to_object(text)
+      when :yaml then yaml_to_object(text)
+      when :xml then xml_to_object(text)
       else raise UnsupportedFormatError, format
       end
     end
@@ -31,8 +34,9 @@ module Xvert
     def to_text(object, format:)
       case format
       when :json then object_to_json(object)
-      when :yaml then object_to_yaml(object)
       when :toml then object_to_toml(object)
+      when :yaml then object_to_yaml(object)
+      when :xml then object_to_xml(object)
       else raise UnsupportedFormatError, format
       end
     end
@@ -49,16 +53,6 @@ module Xvert
       JSON.pretty_generate(object)
     end
 
-    # YAML
-
-    def yaml_to_object(text)
-      YAML.unsafe_load(text)
-    end
-
-    def object_to_yaml(object)
-      YAML.dump(object)
-    end
-
     # TOML
 
     def toml_to_object(text)
@@ -67,6 +61,26 @@ module Xvert
 
     def object_to_toml(object)
       TomlRB.dump(object)
+    end
+
+    # XML
+
+    def xml_to_object(text)
+      Hash.from_xml(text)
+    end
+
+    def object_to_xml(object)
+      object.to_xml(root: :root)
+    end
+
+    # YAML
+
+    def yaml_to_object(text)
+      YAML.unsafe_load(text)
+    end
+
+    def object_to_yaml(object)
+      YAML.dump(object)
     end
   end
 end
