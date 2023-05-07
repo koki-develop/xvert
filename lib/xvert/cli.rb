@@ -19,5 +19,15 @@ module Xvert
     def yj
       puts Xvert.yaml_to_json($stdin.readlines.join)
     end
+
+    desc "tj", "Convert TOML to JSON"
+    def tj
+      puts Xvert.toml_to_json($stdin.readlines.join)
+    end
+
+    desc "ty", "Convert TOML to YAML"
+    def ty
+      puts Xvert.toml_to_yaml($stdin.readlines.join)
+    end
   end
 end
