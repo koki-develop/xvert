@@ -21,18 +21,22 @@ $ xvert help
 Commands:
   xvert --version, -v   # Print Xvert version
   xvert help [COMMAND]  # Describe available commands or one specific command
+  xvert jj              # Convert JSON to JSON
   xvert jt              # Convert JSON to TOML
   xvert jx              # Convert JSON to XML
   xvert jy              # Convert JSON to YAML
   xvert tj              # Convert TOML to JSON
+  xvert tt              # Convert TOML to TOML
   xvert tx              # Convert TOML to XML
   xvert ty              # Convert TOML to YAML
   xvert xj              # Convert XML to JSON
   xvert xt              # Convert XML to TOML
+  xvert xx              # Convert XML to XML
   xvert xy              # Convert XML to YAML
   xvert yj              # Convert YAML to JSON
   xvert yt              # Convert YAML to TOML
   xvert yx              # Convert YAML to XML
+  xvert yy              # Convert YAML to YAML
 ```
 
 - [JSON to JSON](#json-to-json)
