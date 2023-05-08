@@ -2,6 +2,10 @@
 
 require "rouge"
 require "thor"
+require_relative "cli/json"
+require_relative "cli/toml"
+require_relative "cli/xml"
+require_relative "cli/yaml"
 
 module Xvert
   class CLI < Thor
@@ -18,101 +22,7 @@ module Xvert
       puts ::Xvert::VERSION
     end
 
-    #
-    # JSON => X
-    #
-
-    desc "jy", "Convert JSON to YAML"
-    def jy
-      j(:yaml)
-    end
-
-    desc "jt", "Convert JSON to TOML"
-    def jt
-      j(:toml)
-    end
-
-    desc "jx", "Convert JSON to XML"
-    def jx
-      j(:xml)
-    end
-
-    #
-    # TOML => X
-    #
-
-    desc "tj", "Convert TOML to JSON"
-    def tj
-      t(:json)
-    end
-
-    desc "ty", "Convert TOML to YAML"
-    def ty
-      t(:yaml)
-    end
-
-    desc "tx", "Convert TOML to XML"
-    def tx
-      t(:xml)
-    end
-
-    #
-    # XML
-    #
-
-    desc "xj", "Convert XML to JSON"
-    def xj
-      x(:json)
-    end
-
-    desc "xt", "Convert XML to TOML"
-    def xt
-      x(:toml)
-    end
-
-    desc "xy", "Convert XML to YAML"
-    def xy
-      x(:yaml)
-    end
-
-    #
-    # YAML => X
-    #
-
-    desc "yj", "Convert YAML to JSON"
-    def yj
-      y(:json)
-    end
-
-    desc "yt", "Convert YAML to TOML"
-    def yt
-      y(:toml)
-    end
-
-    desc "yx", "Convert YAML to XML"
-    def yx
-      y(:xml)
-    end
-
-    # ---
-
     private
-
-    def j(format)
-      run(from: :json, to: format)
-    end
-
-    def t(format)
-      run(from: :toml, to: format)
-    end
-
-    def x(format)
-      run(from: :xml, to: format)
-    end
-
-    def y(format)
-      run(from: :yaml, to: format)
-    end
 
     def run(from:, to:)
       text = ::Xvert.convert(input, from: from, to: to).chomp

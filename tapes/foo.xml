@@ -1,2 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<message>hello world</message>
+<?xml version="1.0" encoding="UTF-8"?><root><foo>bar</foo><baz>qux</baz></root>
