@@ -35,18 +35,30 @@ Commands:
   xvert yx              # Convert YAML to XML
 ```
 
+- [JSON to JSON](#json-to-json)
 - [JSON to TOML](#json-to-toml)
 - [JSON to XML](#json-to-xml)
 - [JSON to YAML](#json-to-yaml)
 - [TOML to JSON](#toml-to-json)
+- [TOML to TOML](#toml-to-toml)
 - [TOML to XML](#toml-to-xml)
 - [TOML to YAML](#toml-to-yaml)
 - [XML to JSON](#xml-to-json)
 - [XML to TOML](#xml-to-toml)
+- [XML to XML](#xml-to-xml)
 - [XML to YAML](#xml-to-yaml)
 - [YAML to JSON](#yaml-to-json)
 - [YAML to TOML](#yaml-to-toml)
 - [YAML to XML](#yaml-to-xml)
+- [YAML to YAML](#yaml-to-yaml)
+
+### JSON to JSON
+
+```console
+$ xvert jj < foo.json
+```
+
+![](./assets/jj.gif)
 
 ### JSON to TOML
 
@@ -80,6 +92,14 @@ $ xvert tj < foo.toml
 
 ![](./assets/tj.gif)
 
+### TOML to TOML
+
+```console
+$ xvert tt < foo.toml
+```
+
+![](./assets/tt.gif)
+
 ### TOML to XML
 
 ```console
@@ -112,6 +132,14 @@ $ xvert xt < foo.xml
 
 ![](./assets/xt.gif)
 
+### XML to XML
+
+```console
+$ xvert xx < foo.xml
+```
+
+![](./assets/xx.gif)
+
 ### XML to YAML
 
 ```console
@@ -143,6 +171,14 @@ $ xvert yx < foo.yaml
 ```
 
 ![](./assets/yx.gif)
+
+### YAML to YAML
+
+```console
+$ xvert yy < foo.yaml
+```
+
+![](./assets/yy.gif)
 
 ## License
 

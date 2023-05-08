@@ -2,19 +2,19 @@
 
 COMMANDS = [
   # JSON
-  "jt", "jx", "jy",
+  "jj", "jt", "jx", "jy",
   # TOML
-  "tj", "tx", "ty",
+  "tj", "tt", "tx", "ty",
   # XML
-  "xj", "xt", "xy",
+  "xj", "xt", "xx", "xy",
   # YAML
-  "yj", "yt", "yx"
+  "yj", "yt", "yx", "yy"
 ].sort
 
 def update_tapes
   COMMANDS.each do |command|
     from_format, = extract_formats(command)
-    foo_filename = "foo.#{from_format}}"
+    foo_filename = "foo.#{from_format}"
 
     tape = <<~TAPE
       Output assets/#{command}.gif
