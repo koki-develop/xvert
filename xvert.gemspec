@@ -25,7 +25,7 @@ Gem::Specification.new do |spec|
   spec.executables = spec.files.grep(%r{\Abin/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_runtime_dependency "activesupport", "~> 7.0.0"
+  spec.add_runtime_dependency "activesupport", "~> 8.0.0"
   spec.add_runtime_dependency "builder", "~> 3.2.0"
   spec.add_runtime_dependency "json", "~> 2.6.0"
   spec.add_runtime_dependency "rouge", "~> 4.1.0"
